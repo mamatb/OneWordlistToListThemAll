@@ -46,7 +46,7 @@ wordlist name with mega link | decompressed file size | original source
 [probable_wordlists](https://mega.nz/file/II5zXKhZ#mJaNjRiJbqagRPX36Uj0pG7P--73x7SoQt_axy5UZjw) | 21.1 GB | biggest file included in [Probable-Wordlists' torrent](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
 [weakpass_2a](https://mega.nz/file/gZoFiAKT#qIbE2JJbtDIkbEjXqxjRISFtBcXQo11h1Vl1GpeQKC8) | 89.6 GB | `weakpass_2a` at [weakpass.com](https://weakpass.com/wordlist/1919)
  | | 
-[OneWordlistToListThemAll](https://mega.nz/file/0U5nQS4Y#UrpqxFWvOntGrsgOeZtWRwt3ZhiG5tRMqddciOx-MR0) | 107.8 GB | nope
+[OneWordlistToListThemAll](https://mega.nz/file/Id50DITC#5l9eej1NP-kK5SOOTX1kpuEee4xULr-eiL7jSs3NbNo) | 107.8 GB | nope
 
 Acknowledgements
 ----------------
