@@ -12,7 +12,7 @@ Just filtering and mixing.
 
 1. Make sure the source wordlists are not using DOS/Windows line breaks (CR + LF). No need to look for Mac line breaks as they switched from CR to LF long time ago.
 ```
-dos2unix --newfile "${WORDLIST}.txt" "${WORDLIST}-unix.txt"
+dos2unix --force --newfile "${WORDLIST}.txt" "${WORDLIST}-unix.txt"
 ```
 2. Sort each wordlist and remove duplicates, using version sort just makes more sense to me.
 ```
@@ -28,8 +28,8 @@ sed --regexp-extended '/.{64,}/d' "${WORDLIST}-unix_sort_graph.txt" > "${WORDLIS
 ```
 5. Generate OneWordlistToListThemAll.
 ```
-cat *.txt > "OneWordlistToListThemAll.tmp"
-sort --unique --version-sort --output="OneWordlistToListThemAll.txt" "OneWordlistToListThemAll.tmp"
+cat *.txt > 'OneWordlistToListThemAll.tmp'
+sort --unique --version-sort --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
 ```
 Sources
 -------
