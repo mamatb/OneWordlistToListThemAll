@@ -31,22 +31,23 @@ sed --regexp-extended '/.{64,}/d' "${WORDLIST}-unix_sort_graph.txt" > "${WORDLIS
 cat *.txt > 'OneWordlistToListThemAll.tmp'
 sort --unique --version-sort --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
 ```
-Sources
+Wordlists
 -------
 
-wordlist name with mega link | decompressed file size | original source
+name | size | source
 --- | --- | ---
-adeptus_mechanicus | 1.6 GB | `.dic.7z` files at [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
-breach_compilation | 3.9 GB | magnet link from a [public gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
-crackstation | 12.3 GB | [CrackStation's wordlist](https://crackstation.net/files/crackstation.txt.gz)
+Adeptus Mechanicus | 1.6 GB | `.dic.7z` files at [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
+breachcompilation | 3.9 GB | magnet link from a [public gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
+CrackStation | 12.3 GB | [CrackStation's wordlist](https://crackstation.net/files/crackstation.txt.gz)
 DCHTPass | 23.9 GB | `DCHTPassv1.0.txt` at [weakpass.com](https://weakpass.com/wordlist/1257)
-eap | 0.3 GB | passwords grabbed while testing WPA/WPA2-MGT fake APs + [HashcatRulesEngine](https://github.com/llamasoft/HashcatRulesEngine) using [OneRuleToRuleThemAll](https://github.com/NotSoSecure/password_cracking_rules/blob/master/OneRuleToRuleThemAll.rule)
-hashesorg2019 | 13.2 GB | `hashesorg2019` at [weakpass.com](https://weakpass.com/wordlist/1851)
-kaonashi | 9.4 GB | [mega link](https://mega.nz/#!nWJXzYzS!P1G8HDiMxq5wFaxeWGWx334Wp9wByj5kMEGLZkVX694) from [Kaonashi's repo](https://github.com/kaonashi-passwords/Kaonashi)
-probable_wordlists | 21.1 GB | biggest file included in [Probable-Wordlists' torrent](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
-weakpass_2a | 89.6 GB | `weakpass_2a` at [weakpass.com](https://weakpass.com/wordlist/1919)
+EAP | 0.3 GB | passwords grabbed while testing WPA/WPA2-MGT fake APs + [HashcatRulesEngine](https://github.com/llamasoft/HashcatRulesEngine) using [OneRuleToRuleThemAll](https://github.com/NotSoSecure/password_cracking_rules/blob/master/OneRuleToRuleThemAll.rule)
+Hashes.org | 13.2 GB | `hashesorg2019` at [weakpass.com](https://weakpass.com/wordlist/1851)
+Have I Been Pwned | 6.6 GB | `Have I Been Pwned` leaks at [hashes.org](https://temp.hashes.org/leaks.php) (V1 - V6)
+Kaonashi | 9.4 GB | [mega link](https://mega.nz/#!nWJXzYzS!P1G8HDiMxq5wFaxeWGWx334Wp9wByj5kMEGLZkVX694) from [Kaonashi's repo](https://github.com/kaonashi-passwords/Kaonashi)
+Probable Wordlists | 21.1 GB | biggest file included in [Probable-Wordlists' torrent](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
+Weakpass | 89.6 GB | `weakpass_2a` at [weakpass.com](https://weakpass.com/wordlist/1919)
  | | 
-[OneWordlistToListThemAll](https://mega.nz/file/MFJhRQJZ#oyXk17Nr2nYka1qvVvZCy1KZmgh7tGGx-CgPiPyCh_M) | 107.8 GB | nope
+[OneWordlistToListThemAll](https://mega.nz/file/ZVpkCIpS#-05NTc4KajV-Zvf6QhNog6q_99m44zKZDj6MPNbZkR4) | 108.9 GB | nope
 
 Acknowledgements
 ----------------
