@@ -47,7 +47,7 @@ Kaonashi | 9.4 GB | [mega link](https://mega.nz/#!nWJXzYzS!P1G8HDiMxq5wFaxeWGWx3
 Probable Wordlists | 21.1 GB | biggest file included in [Probable-Wordlists' torrent](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
 Weakpass | 89.6 GB | `weakpass_2a` at [weakpass.com](https://weakpass.com/wordlist/1919)
  | | 
-[OneWordlistToListThemAll](https://mega.nz/file/ZVpkCIpS#-05NTc4KajV-Zvf6QhNog6q_99m44zKZDj6MPNbZkR4) | 108.9 GB | nope
+[OneWordlistToListThemAll](https://mega.nz/file/ZJQllIRR#uuefkf7LbpiqSAa5RaJxS1PA8emDBfESGZ5PC2k4RaA) | 108.9 GB | nope
 
 Acknowledgements
 ----------------
