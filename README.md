@@ -28,7 +28,7 @@ sed --regexp-extended '/.{64,}/d' "${WORDLIST}-unix_sort_graph.txt" > "${WORDLIS
 ```
 5. Generate OneWordlistToListThemAll.
 ```
-cat *.txt > 'OneWordlistToListThemAll.tmp'
+cat *unix_sort_graph_under64.txt > 'OneWordlistToListThemAll.tmp'
 sort --unique --version-sort --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
 ```
 Wordlists
