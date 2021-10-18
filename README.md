@@ -37,7 +37,7 @@ Wordlists
 name | size | source
 --- | --- | ---
 Adeptus Mechanicus | 1.6 GB | `.dic.7z` files at [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
-breachcompilation | 3.9 GB | magnet link from a [public gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
+Breach Compilation | 3.9 GB | magnet link from a [public gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
 CrackStation | 12.3 GB | [CrackStation's wordlist](https://crackstation.net/files/crackstation.txt.gz)
 EAP | 0.4 GB | passwords grabbed while testing WPA/WPA2-MGT fake APs + [HashcatRulesEngine](https://github.com/llamasoft/HashcatRulesEngine) using [OneRuleToRuleThemAll](https://github.com/NotSoSecure/password_cracking_rules/blob/master/OneRuleToRuleThemAll.rule)
 Hashes.org | 14.5 GB | `Hashes.org` at [weakpass.com](https://weakpass.com/wordlist/1931)
@@ -47,7 +47,7 @@ Kaonashi | 9.4 GB | [mega link](https://mega.nz/#!nWJXzYzS!P1G8HDiMxq5wFaxeWGWx3
 Probable Wordlists | 21.1 GB | biggest file included in [Probable-Wordlists' torrent](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
 Weakpass | 100.7 GB | `weakpass_3a` at [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
-[OneWordlistToListThemAll](https://mega.nz/file/0NhUgCLL#62jFbpgYskGiA901VD6pz2O7i4vuLZiB2Dfj-l36We8) | 103.7 GB | nope
+[OneWordlistToListThemAll](https://mega.nz/file/0NhUgCLL#62jFbpgYskGiA901VD6pz2O7i4vuLZiB2Dfj-l36We8) | 103.7 GB | N/A
 
 Acknowledgements
 ----------------
