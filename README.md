@@ -11,23 +11,23 @@ How?
 Just filtering and mixing.
 
 1. Make sure the source wordlists are not using DOS/Windows line breaks (CR + LF). No need to look for Mac line breaks as they switched from CR to LF long time ago.
-```
+```bash
 dos2unix --force --newfile "${WORDLIST}.txt" "${WORDLIST}-unix.txt"
 ```
 2. Sort each wordlist and remove duplicates, using version sort just makes more sense to me.
-```
+```bash
 sort --unique --version-sort --output="${WORDLIST}-unix_sort.txt" "${WORDLIST}-unix.txt"
 ```
 3. Get rid of entries containing non-ascii or non-visible characters (except for the space). I'm aware of the built-in POSIX character class `[:graph:]`, but have decided to keep the space in the charset.
-```
+```bash
 LC_ALL='C' grep --text --perl-regexp '^([\x20-\x7E])*$' "${WORDLIST}-unix_sort.txt" > "${WORDLIST}-unix_sort_graph.txt"
 ```
 4. Remove all entries longer than 63 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
-```
+```bash
 sed --regexp-extended '/.{64,}/d' "${WORDLIST}-unix_sort_graph.txt" > "${WORDLIST}-unix_sort_graph_under64.txt"
 ```
 5. Generate OneWordlistToListThemAll.
-```
+```bash
 cat *unix_sort_graph_under64.txt > 'OneWordlistToListThemAll.tmp'
 sort --unique --version-sort --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
 ```
