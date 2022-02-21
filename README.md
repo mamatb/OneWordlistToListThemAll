@@ -1,10 +1,15 @@
 # OneWordlistToListThemAll
 
-## What?
+* [What?](#what)
+* [How?](#how)
+* [Wordlists](#wordlists)
+* [Acknowledgements](#acknowledgements)
+
+## What? <a name="what" />
 
 OneWordlistToListThemAll is a huge mix of password wordlists, proven to be pretty useful to provide some quick hits when cracking several hashes. Feel free to hit me up if any link in here no longer works.
 
-## How?
+## How? <a name="how" />
 
 Just filtering and mixing.
 
@@ -29,7 +34,7 @@ sed --regexp-extended '/.{64,}/d' "${WORDLIST}-unix_sort_graph.txt" > "${WORDLIS
 cat *unix_sort_graph_under64.txt > 'OneWordlistToListThemAll.tmp'
 sort --unique --version-sort --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
 ```
-## Wordlists
+## Wordlists <a name="wordlists" />
 
 name | size | source
 --- | --- | ---
@@ -46,6 +51,6 @@ Weakpass | 100.7 GB | `weakpass_3a` at [weakpass.com](https://weakpass.com/wordl
  | | 
 [OneWordlistToListThemAll](https://mega.nz/file/5UhlnQ5b#XOeSN-vz2c5O_B0oOxetgl2_2qwaXLUbTTSFRMcTb6k) | 103.7 GB | N/A
 
-## Acknowledgements
+## Acknowledgements <a name="acknowledgements" />
 
 I'd like to thank the authors of the source wordlists. As stated before, this repo is just a bunch of filtering and mixing other people's work.
