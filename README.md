@@ -17,22 +17,22 @@ Just filtering and mixing.
 ```bash
 dos2unix --force --newfile "${WORDLIST}.txt" "${WORDLIST}-unix.txt"
 ```
-2. Sort each wordlist and remove duplicates, using version sort just makes more sense to me.
+2. Get rid of entries containing non-ascii or non-visible characters (except for the space). I'm aware of the built-in POSIX character class `[:graph:]`, but have decided to keep the space in the charset.
 ```bash
-sort --unique --version-sort --output="${WORDLIST}-unix_sort.txt" "${WORDLIST}-unix.txt"
+LC_ALL='C' grep --text --perl-regexp '^([\x20-\x7E])*$' "${WORDLIST}-unix.txt" > "${WORDLIST}-unix_graph.txt"
 ```
-3. Get rid of entries containing non-ascii or non-visible characters (except for the space). I'm aware of the built-in POSIX character class `[:graph:]`, but have decided to keep the space in the charset.
+3. Remove all entries longer than 63 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
 ```bash
-LC_ALL='C' grep --text --perl-regexp '^([\x20-\x7E])*$' "${WORDLIST}-unix_sort.txt" > "${WORDLIST}-unix_sort_graph.txt"
+sed --regexp-extended '/.{64,}/d' "${WORDLIST}-unix_graph.txt" > "${WORDLIST}-unix_graph_under64.txt"
 ```
-4. Remove all entries longer than 63 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
+4. Sort each wordlist and remove duplicates.
 ```bash
-sed --regexp-extended '/.{64,}/d' "${WORDLIST}-unix_sort_graph.txt" > "${WORDLIST}-unix_sort_graph_under64.txt"
+sort --unique --output="${WORDLIST}-unix_graph_under64_sort.txt" "${WORDLIST}-unix_graph_under64.txt"
 ```
 5. Generate OneWordlistToListThemAll.
 ```bash
-cat *unix_sort_graph_under64.txt > 'OneWordlistToListThemAll.tmp'
-sort --unique --version-sort --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
+cat *unix_graph_under64_sort.txt > 'OneWordlistToListThemAll.tmp'
+sort --unique --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
 ```
 ## Wordlists <a name="wordlists" />
 
