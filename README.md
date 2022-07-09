@@ -51,7 +51,7 @@ Probable Wordlists | 21.1 GB | `.torrent` file from [Probable-Wordlists' repo](h
 RockYou | 136.2 MB | `.tar.gz` file from [SecLists' repo](https://github.com/danielmiessler/SecLists)
 Weakpass | 100.7 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
-OneWordlistToListThemAll ([OneWordlistToListThemAll.7z.001](https://anonfiles.com/t6yba6w6yc/OneWordlistToListThemAll.7z_001) + [OneWordlistToListThemAll.7z.002](https://anonfiles.com/V8kfaew2yf/OneWordlistToListThemAll.7z_002)) | 103.7 GB | N/A
+OneWordlistToListThemAll ([OneWordlistToListThemAll.7z.001](https://anonfiles.com/t1sao6wcya/OneWordlistToListThemAll.7z_001) + [OneWordlistToListThemAll.7z.002](https://anonfiles.com/H1Z4n6w2y0/OneWordlistToListThemAll.7z_002)) | 103.7 GB | N/A
 
 ## Acknowledgements <a name="acknowledgements" />
 
