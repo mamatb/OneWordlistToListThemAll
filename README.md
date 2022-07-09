@@ -38,16 +38,18 @@ sort --unique --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.
 
 name | size | source
 --- | --- | ---
-Adeptus Mechanicus | 1.6 GB | `.dic.7z` files at [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
-Breach Compilation | 3.9 GB | magnet link from a [public gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
-CrackStation | 12.3 GB | [CrackStation's wordlist](https://crackstation.net/files/crackstation.txt.gz)
-EAP | 0.4 GB | passwords grabbed while testing WPA/WPA2-MGT fake APs
-Hashes.org | 14.5 GB | `Hashes.org` at [weakpass.com](https://weakpass.com/wordlist/1931)
-Hashkiller.io | 2.8 GB | [Hashkiller.io's wordlist](https://hashkiller.io/downloads/hashkiller-dict-2020-01-26.7z)
-Have I Been Pwned | 6.6 GB | `Have I Been Pwned` leaks at [hashes.org](https://temp.hashes.org/leaks.php) (V1 - V6)
-Kaonashi | 9.4 GB | [mega link](https://mega.nz/#!nWJXzYzS!P1G8HDiMxq5wFaxeWGWx334Wp9wByj5kMEGLZkVX694) from [Kaonashi's repo](https://github.com/kaonashi-passwords/Kaonashi)
-Probable Wordlists | 21.1 GB | biggest file included in [Probable-Wordlists' torrent](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
-Weakpass | 100.7 GB | `weakpass_3a` at [weakpass.com](https://weakpass.com/wordlist/1948)
+Adeptus Mechanicus | 1.6 GB | `.dic.7z` files from [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
+Breach Compilation | 3.9 GB | magnet link from [GitHub Gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
+CrackStation.net | 12.3 GB | [CrackStation.net's wordlist](https://crackstation.net/files/crackstation.txt.gz)
+EAP | 7 KB | passwords grabbed while testing WPA/WPA2-MGT fake APs
+Hashes.org | 14.5 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1931)
+Hashkiller.io | 2.8 GB | [Hashkiller.io's wordlist](https://hashkiller.io/downloads/)
+Have I Been Pwned | 6.6 GB | leaks from [Hashes.org](https://temp.hashes.org/leaks.php) (HIBP V1 - V6)
+Kaonashi | 9.4 GB | MEGA link from [Kaonashi's repo](https://github.com/kaonashi-passwords/Kaonashi)
+Password DNA | 80.5 KB | `.dict` file from [unix-ninja's post](https://www.unix-ninja.com/p/Password_DNA)
+Probable Wordlists | 21.1 GB | `.torrent` file from [Probable-Wordlists' repo](https://github.com/berzerk0/Probable-Wordlists/)
+RockYou | 136.2 MB | `.tar.gz` file from [SecLists' repo](https://github.com/danielmiessler/SecLists)
+Weakpass | 100.7 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
 OneWordlistToListThemAll ([OneWordlistToListThemAll.7z.001](https://anonfiles.com/t6yba6w6yc/OneWordlistToListThemAll.7z_001) + [OneWordlistToListThemAll.7z.002](https://anonfiles.com/V8kfaew2yf/OneWordlistToListThemAll.7z_002)) | 103.7 GB | N/A
 
