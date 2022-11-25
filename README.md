@@ -23,7 +23,7 @@ LC_ALL='C' grep --text --perl-regexp '^([\x20-\x7E])*$' "${WORDLIST}-unix.txt" >
 ```
 3. Remove all entries longer than 32 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
 ```bash
-sed --regexp-extended '/.{33,}/d' "${WORDLIST}-unix_graph.txt" > "${WORDLIST}-unix_32max.txt"
+sed --regexp-extended '/.{33,}/d' "${WORDLIST}-unix_graph.txt" > "${WORDLIST}-unix_graph_32max.txt"
 ```
 4. Sort each wordlist and remove duplicates.
 ```bash
