@@ -21,9 +21,9 @@ dos2unix --force --newfile "${WORDLIST}.txt" "${WORDLIST}-unix.txt"
 ```bash
 LC_ALL='C' grep --text --perl-regexp '^([\x20-\x7E])*$' "${WORDLIST}-unix.txt" > "${WORDLIST}-unix_graph.txt"
 ```
-3. Remove all entries longer than 63 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
+3. Remove all entries longer than 32 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
 ```bash
-sed --regexp-extended '/.{64,}/d' "${WORDLIST}-unix_graph.txt" > "${WORDLIST}-unix_graph_under64.txt"
+sed --regexp-extended '/.{33,}/d' "${WORDLIST}-unix_graph.txt" > "${WORDLIST}-unix_graph_under64.txt"
 ```
 4. Sort each wordlist and remove duplicates.
 ```bash
@@ -52,7 +52,7 @@ RockYou | 136.2 MB | `.tar.gz` file from [SecLists' repo](https://github.com/dan
 RockYou 2021 | 90.6 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1943)
 Weakpass | 100.7 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
-OneWordlistToListThemAll ([OneWordlistToListThemAll.7z.001](https://anonfiles.com/nfpdEdDey1/OneWordlistToListThemAll.7z_001) + [OneWordlistToListThemAll.7z.002](https://anonfiles.com/UfAfEbD3y5/OneWordlistToListThemAll.7z_002)) | 103.7 GB | N/A
+OneWordlistToListThemAll ([OneWordlistToListThemAll.7z.001](https://anonfiles.com/A010t0J4yb/OneWordlistToListThemAll.7z_001) + [OneWordlistToListThemAll.7z.002](https://anonfiles.com/Z5y0t7J0y3/OneWordlistToListThemAll.7z_002)) | 102.5 GB | N/A
 
 ## Acknowledgements <a name="acknowledgements" />
 
