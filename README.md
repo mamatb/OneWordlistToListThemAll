@@ -17,11 +17,11 @@ Just filtering and mixing.
 ```bash
 dos2unix --force --newfile "${WORDLIST}.txt" "${WORDLIST}-unix.txt"
 ```
-2. Get rid of entries containing non-ascii or non-visible characters (except for the space). I'm aware of the built-in POSIX character class `[:graph:]`, but have decided to keep the space in the charset.
+2. Get rid of passwords containing non-ascii or non-visible characters (except for the space). I'm aware of the built-in POSIX character class `[:graph:]`, but have decided to keep the space in the charset.
 ```bash
 LC_ALL='C' grep --text --perl-regexp '^([\x20-\x7E])*$' "${WORDLIST}-unix.txt" > "${WORDLIST}-unix_graph.txt"
 ```
-3. Remove all entries longer than 32 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
+3. Remove all passwords longer than 32 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
 ```bash
 sed --regexp-extended '/.{33,}/d' "${WORDLIST}-unix_graph.txt" > "${WORDLIST}-unix_graph_32max.txt"
 ```
@@ -54,6 +54,7 @@ RockYou 2021 | 90.6 GB | `.7z` file from [weakpass.com](https://weakpass.com/wor
 Weakpass | 100 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
 OneWordlistToListThemAll ([OneWordlistToListThemAll.7z.001](https://anonfiles.com/Lfv2b7h8z4/OneWordlistToListThemAll_7z_001) + [OneWordlistToListThemAll.7z.002](https://anonfiles.com/3dq8bah2z5/OneWordlistToListThemAll_7z_002)) | 102.6 GB | N/A
+OneWordlistToListThemAll WPA-PSK, at least 8 characters per password ([OneWordlistToListThemAll_WPA-PSK.7z.001](https://anonfiles.com/lcZcg6hbz4/OneWordlistToListThemAll_WPA_PSK_7z_001) + [OneWordlistToListThemAll_WPA-PSK.7z.002](https://anonfiles.com/9dNeg3hfz9/OneWordlistToListThemAll_WPA_PSK_7z_002)) | 94.1 GB | N/A
 
 ## Acknowledgements <a name="acknowledgements" />
 
