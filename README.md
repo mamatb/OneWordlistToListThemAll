@@ -36,7 +36,7 @@ sort --unique --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.
 ```
 ## Wordlists <a name="wordlists" />
 
-name | size (post filters) | source
+name | size (post filtering) | source
 -- | -- | --
 Adeptus Mechanicus | 1.6 GB | `.dic.7z` files from [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
 Breach Compilation | 3.8 GB | magnet link from [GitHub Gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
