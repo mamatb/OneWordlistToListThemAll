@@ -54,7 +54,7 @@ RockYou 2021 | 90.6 GB | `.7z` file from [weakpass.com](https://weakpass.com/wor
 Weakpass | 100 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
 OneWordlistToListThemAll ([OneWordlistToListThemAll.7z.001](https://anonfiles.com/Lfv2b7h8z4/OneWordlistToListThemAll_7z_001) + [OneWordlistToListThemAll.7z.002](https://anonfiles.com/3dq8bah2z5/OneWordlistToListThemAll_7z_002)) | 102.6 GB | N/A
-OneWordlistToListThemAll WPA-PSK, at least 8 characters per password ([OneWordlistToListThemAll_WPA-PSK.7z.001](https://anonfiles.com/lcZcg6hbz4/OneWordlistToListThemAll_WPA_PSK_7z_001) + [OneWordlistToListThemAll_WPA-PSK.7z.002](https://anonfiles.com/9dNeg3hfz9/OneWordlistToListThemAll_WPA_PSK_7z_002)) | 94.1 GB | N/A
+OneWordlistToListThemAll WPA-PSK, at least 8 characters per password ([OneWordlistToListThemAll_WPA-PSK.7z.001](https://anonfiles.com/45y5V6l7ze/OneWordlistToListThemAll_WPA_PSK_7z_001) + [OneWordlistToListThemAll_WPA-PSK.7z.002](https://anonfiles.com/i7i0Vdl5z8/OneWordlistToListThemAll_WPA_PSK_7z_002)) | 94.1 GB | N/A
 
 ## Acknowledgements <a name="acknowledgements" />
 
