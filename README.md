@@ -41,7 +41,7 @@ name | size (post filtering) | source
 Adeptus Mechanicus | 1.6 GB | `.dic.7z` files from [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
 Breach Compilation | 3.8 GB | magnet link from [GitHub Gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
 CrackStation | 12.1 GB | [CrackStation's wordlist](https://crackstation.net/files/crackstation.txt.gz)
-Cyclone | 6.2 GB | anonfiles link from [cyclone's repo](https://github.com/cyclone-github/wordlist/tree/master/cyclone_hk_v2)
+Cyclone | 6.2 GB | MediaFire link from [cyclone's repo](https://github.com/cyclone-github/wordlist/tree/master/cyclone_hk_v2)
 EAP | 7 KB | passwords grabbed while testing WPA/WPA2-MGT fake APs
 Hashes.org | 14.2 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1931)
 Hashkiller.io | 2.8 GB | [Hashkiller.io's wordlist](https://hashkiller.io/download)
