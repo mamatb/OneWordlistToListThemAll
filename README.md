@@ -52,8 +52,8 @@ RockYou | 136.2 MB | `.tar.gz` file from [SecLists' repo](https://github.com/dan
 RockYou 2021 | 90.6 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1943)
 Weakpass | 100 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
-[OneWordlistToListThemAll](https://gofile.io/d/b6SBjB) | 102.2 GB | N/A
-[OneWordlistToListThemAll WPA-PSK](https://gofile.io/d/M63RbZ), at least 8 characters per password | 93.8 GB | N/A
+[OneWordlistToListThemAll](https://gofile.io/d/SVU1Kf) | 102.2 GB | N/A
+[OneWordlistToListThemAll WPA-PSK](https://gofile.io/d/ilYd7d), at least 8 characters per password | 93.8 GB | N/A
 
 ## Acknowledgements <a name="acknowledgements" />
 
