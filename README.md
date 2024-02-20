@@ -34,6 +34,11 @@ sort --unique --output="${WORDLIST}-unix_graph_32max_sort.txt" "${WORDLIST}-unix
 cat *unix_graph_32max_sort.txt > 'OneWordlistToListThemAll.tmp'
 sort --unique --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
 ```
+6. Generate OneWordlistToListThemAll WPA-PSK, at least 8 characters per password.
+```bash
+grep --text --extended-regexp '.{8,}' 'OneWordlistToListThemAll.txt' > 'OneWordlistToListThemAll_WPA-PSK.txt'
+```
+
 ## Wordlists <a name="wordlists" />
 
 name | size (post filtering) | source
@@ -53,7 +58,7 @@ RockYou 2021 | 90.6 GB | `.7z` file from [weakpass.com](https://weakpass.com/wor
 Weakpass | 100 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
 [OneWordlistToListThemAll](https://drive.google.com/file/d/17cDPQQQdHljLPhxavQxYRtm_QjLJQc39) | 102.2 GB | N/A
-[OneWordlistToListThemAll WPA-PSK](https://drive.google.com/file/d/1FRZIlr0TwTjoOiCjdWLgj1QakZ6toIj2), at least 8 characters per password | 93.8 GB | N/A
+[OneWordlistToListThemAll WPA-PSK](https://drive.google.com/file/d/1FRZIlr0TwTjoOiCjdWLgj1QakZ6toIj2) | 93.8 GB | N/A
 
 ## Acknowledgements <a name="acknowledgements" />
 
