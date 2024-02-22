@@ -48,7 +48,6 @@ Breach Compilation | 3.8 GB | magnet link from [GitHub Gist](https://gist.github
 CrackStation | 12.1 GB | [CrackStation's wordlist](https://crackstation.net/files/crackstation.txt.gz)
 Cyclone | 6.2 GB | MediaFire link from [cyclone's repo](https://github.com/cyclone-github/wordlist/tree/master/cyclone_hk_v2)
 Have I Been Pwned | 6.2 GB | leaks from [hashes.org](https://temp.hashes.org/leaks.php) (HIBP V1 - V6)
-Kaonashi | 9.4 GB | MEGA link from [Kaonashi's repo](https://github.com/kaonashi-passwords/Kaonashi/tree/master/wordlists)
 Password DNA | 80.5 KB | `.dict` file from [unix-ninja's post](https://www.unix-ninja.com/p/Password_DNA)
 Probable Wordlists | 21 GB | `.torrent` file from [Probable-Wordlists' repo](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
 RockYou | 136.2 MB | `.tar.gz` file from [SecLists' repo](https://github.com/danielmiessler/SecLists/tree/master/Passwords/Leaked-Databases)
