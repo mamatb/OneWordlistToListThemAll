@@ -50,7 +50,6 @@ Cyclone | 6.2 GB | MediaFire link from [cyclone's repo](https://github.com/cyclo
 Have I Been Pwned | 6.2 GB | leaks from [hashes.org](https://temp.hashes.org/leaks.php) (HIBP V1 - V6)
 Password DNA | 80.5 KB | `.dict` file from [unix-ninja's post](https://www.unix-ninja.com/p/Password_DNA)
 Probable Wordlists | 21 GB | `.torrent` file from [Probable-Wordlists' repo](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
-RockYou 2021 | 90.6 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1943)
 Weakpass | 100 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
  | | 
 [OneWordlistToListThemAll](https://drive.google.com/file/d/17cDPQQQdHljLPhxavQxYRtm_QjLJQc39) | 102.2 GB | N/A
