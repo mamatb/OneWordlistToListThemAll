@@ -31,13 +31,8 @@ def main() -> None:  # pylint: disable=C0116
         'crackstation-unix_graph_32max_sort.txt',
         'cyclone-unix_graph_32max_sort.txt',
         'dna-unix_graph_32max_sort.txt',
-        'hashes_org-unix_graph_32max_sort.txt',
-        'hashkiller-unix_graph_32max_sort.txt',
         'HIBP-unix_graph_32max_sort.txt',
-        'kaonashi-unix_graph_32max_sort.txt',
         'probable_wordlists-unix_graph_32max_sort.txt',
-        'rockyou_2021-unix_graph_32max_sort.txt',
-        'rockyou-unix_graph_32max_sort.txt',
         'weakpass_3a-unix_graph_32max_sort.txt',
     ]
     wordlists_sorted.sort(key=path.getsize)
