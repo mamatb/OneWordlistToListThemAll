@@ -44,6 +44,7 @@ LC_ALL='C' grep --text --extended-regexp '.{8,}' 'OneWordlistToListThemAll.txt' 
 name | size (post filtering) | source
 -- | -- | --
 Adeptus Mechanicus | 1.6 GB | `.dic.7z` files from [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
+Anti Public | 9.3 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1945)
 Breach Compilation | 3.8 GB | magnet link from [GitHub Gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
 CrackStation | 12.1 GB | [CrackStation's wordlist](https://crackstation.net/files/crackstation.txt.gz)
 Cyclone | 6.2 GB | MediaFire link from [cyclone's repo](https://github.com/cyclone-github/wordlist/tree/master/cyclone_hk_v2)
