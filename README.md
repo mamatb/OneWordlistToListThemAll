@@ -15,7 +15,7 @@ Just filtering and mixing.
 
 1. Make sure the source wordlists are not using DOS/Windows line breaks (CR + LF). No need to look for Mac line breaks as they switched from CR to LF long time ago.
 ```bash
-dos2unix --force --newfile "${WORDLIST}.txt" "${WORDLIST}-unix.txt"
+LC_ALL='C' dos2unix --force --newfile "${WORDLIST}.txt" "${WORDLIST}-unix.txt"
 ```
 2. Get rid of passwords containing non-ascii or non-visible characters (except for the space). I'm aware of the built-in POSIX character class `[:graph:]`, but have decided to keep the space in the charset.
 ```bash
@@ -23,20 +23,20 @@ LC_ALL='C' grep --text --perl-regexp '^([\x20-\x7E])*$' "${WORDLIST}-unix.txt" >
 ```
 3. Remove all passwords longer than 32 characters. As OneWordlistToListThemAll aims to provide some quick hits, it does not make much sense trying passwords that long.
 ```bash
-sed --regexp-extended '/.{33,}/d' "${WORDLIST}-unix_graph.txt" > "${WORDLIST}-unix_graph_32max.txt"
+LC_ALL='C' sed --regexp-extended '/.{33,}/d' "${WORDLIST}-unix_graph.txt" > "${WORDLIST}-unix_graph_32max.txt"
 ```
 4. Sort each wordlist and remove duplicates.
 ```bash
-sort --unique --output="${WORDLIST}-unix_graph_32max_sort.txt" "${WORDLIST}-unix_graph_32max.txt"
+LC_ALL='C' sort --unique --output="${WORDLIST}-unix_graph_32max_sort.txt" "${WORDLIST}-unix_graph_32max.txt"
 ```
 5. Generate OneWordlistToListThemAll.
 ```bash
 cat *unix_graph_32max_sort.txt > 'OneWordlistToListThemAll.tmp'
-sort --unique --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
+LC_ALL='C' sort --unique --output='OneWordlistToListThemAll.txt' 'OneWordlistToListThemAll.tmp'
 ```
 6. Generate OneWordlistToListThemAll WPA-PSK, at least 8 characters per password.
 ```bash
-grep --text --extended-regexp '.{8,}' 'OneWordlistToListThemAll.txt' > 'OneWordlistToListThemAll_WPA-PSK.txt'
+LC_ALL='C' grep --text --extended-regexp '.{8,}' 'OneWordlistToListThemAll.txt' > 'OneWordlistToListThemAll_WPA-PSK.txt'
 ```
 
 ## Wordlists <a name="wordlists" />
