@@ -36,11 +36,11 @@ def main() -> None:  # pylint: disable=C0116
         'weakpass_3a-unix_graph_32max_sort.txt',
     ]
     wordlists_sorted.sort(key=path.getsize)
-    for wordlist_index in range(len(wordlists_sorted) - 1):
-        for wordlist_bigger in wordlists_sorted[wordlist_index + 1:]:
+    for wordlist_small_index, wordlist_small in enumerate(wordlists_sorted):
+        for wordlist_big in wordlists_sorted[wordlist_small_index + 1:]:
             multiprocessing.Process(
                 target=is_redundant,
-                args=(wordlists_sorted[wordlist_index], wordlist_bigger),
+                args=(wordlist_small, wordlist_big),
             ).start()
     for child in multiprocessing.active_children():
         child.join()
