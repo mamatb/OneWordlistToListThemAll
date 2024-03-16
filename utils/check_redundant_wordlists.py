@@ -4,23 +4,23 @@ import multiprocessing
 from os import path
 
 
-def is_redundant(wordlist_1:str, wordlist_2:str) -> None:
+def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
     """Check if all lines of smaller sorted wordlist are in bigger sorted wordlist."""
-    with open(wordlist_1) as wl_smaller, open(wordlist_2) as wl_bigger:
-        line_wl_smaller = wl_smaller.readline()
-        line_wl_bigger = wl_bigger.readline()
-        while len(line_wl_smaller) > 0 and len(line_wl_bigger) > 0:
-            sline_wl_smaller = line_wl_smaller.strip('\n')
-            sline_wl_bigger = line_wl_bigger.strip('\n')
-            if sline_wl_smaller > sline_wl_bigger:
-                line_wl_bigger = wl_bigger.readline()
-            elif sline_wl_smaller == sline_wl_bigger:
-                line_wl_smaller = wl_smaller.readline()
-                line_wl_bigger = wl_bigger.readline()
+    with open(wordlist_small) as wl_small, open(wordlist_big) as wl_big:
+        line_wl_small = wl_small.readline()
+        line_wl_big = wl_big.readline()
+        while len(line_wl_small) > 0 and len(line_wl_big) > 0:
+            sline_wl_small = line_wl_small.strip('\n')
+            sline_wl_big = line_wl_big.strip('\n')
+            if sline_wl_small > sline_wl_big:
+                line_wl_big = wl_big.readline()
+            elif sline_wl_small == sline_wl_big:
+                line_wl_small = wl_small.readline()
+                line_wl_big = wl_big.readline()
             else:
                 break
-        if len(line_wl_smaller) == 0:
-            print(f'all lines in {wordlist_1} are already included in {wordlist_2}')
+        if len(line_wl_small) == 0:
+            print(f'all lines in {wordlist_small} are already included in {wordlist_big}')
 
 
 def main() -> None:  # pylint: disable=C0116
