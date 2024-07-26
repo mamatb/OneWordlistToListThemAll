@@ -24,7 +24,7 @@ def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
 
 
 def main() -> None:  # pylint: disable=C0116
-    wordlists_sorted = [wl_s for wl_s in os.listdir() if wl_s.endswith('.txt')]
+    wordlists_sorted = [wl for wl in os.listdir() if wl.endswith('.txt')]
     wordlists_sorted.sort(key=os.path.getsize)
     for wordlist_small_index, wordlist_small in enumerate(wordlists_sorted):
         for wordlist_big in wordlists_sorted[wordlist_small_index + 1:]:
