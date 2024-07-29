@@ -1,11 +1,32 @@
 #!/usr/bin/env python3
 
+# OneWordlistToListThemAll is a huge mix of password wordlists, proven to be
+# pretty useful to provide some quick hits when cracking several hashes
+#
+# author - mamatb (t.me/m_amatb)
+# location - https://github.com/mamatb/OneWordlistToListThemAll
+# style guide - https://google.github.io/styleguide/pyguide.html
+
+# TODO
+#
+# add module docstring
+# add tests using pytest
+
+
 import multiprocessing
 import os
 
 
 def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
-    """Check if all lines of smaller sorted wordlist are in bigger sorted wordlist."""
+    """Checks if all lines of wordlist_small are included in wordlist_big.
+
+    Args:
+        wordlist_small: sorted wordlist, smaller than wordlist_big.
+        wordlist_big: sorted worlist, bigger than wordlist_small.
+
+    Returns:
+        None.
+    """
     with open(wordlist_small) as wl_small, open(wordlist_big) as wl_big:
         line_wl_small = wl_small.readline()
         line_wl_big = wl_big.readline()
@@ -20,7 +41,7 @@ def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
             else:
                 break
         if len(line_wl_small) == 0:
-            print(f'all lines in {wordlist_small} are already included in {wordlist_big}')
+            print(f'all lines in {wordlist_small} are included in {wordlist_big}')
 
 
 def main() -> None:  # pylint: disable=C0116
@@ -38,4 +59,3 @@ def main() -> None:  # pylint: disable=C0116
 
 if __name__ == '__main__':
     main()
-
