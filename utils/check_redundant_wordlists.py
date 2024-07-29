@@ -18,7 +18,7 @@ import os
 
 
 def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
-    """Checks if all lines of wordlist_small are included in wordlist_big.
+    """Checks if all lines in wordlist_small are included in wordlist_big.
 
     Args:
         wordlist_small: sorted wordlist, smaller than wordlist_big.
