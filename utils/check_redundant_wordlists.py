@@ -22,7 +22,7 @@ def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
 
     Args:
         wordlist_small: sorted wordlist, smaller than wordlist_big.
-        wordlist_big: sorted worlist, bigger than wordlist_small.
+        wordlist_big: sorted wordlist, bigger than wordlist_small.
 
     Returns:
         None.
