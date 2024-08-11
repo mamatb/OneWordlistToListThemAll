@@ -11,6 +11,7 @@
 #
 # add module docstring
 # add tests using pytest
+# deal with SIGTERM in child processes
 
 
 import multiprocessing
