@@ -46,7 +46,7 @@ def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
 
 
 def main() -> None:  # pylint: disable=C0116
-    with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
+    with multiprocessing.Pool() as pool:
         wordlists_sorted = sorted(
             [wordlist for wordlist in os.listdir() if wordlist.endswith('.txt')],
             key=os.path.getsize,
