@@ -46,16 +46,16 @@ def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
 
 
 def main() -> None:  # pylint: disable=C0116
-    with multiprocessing.Pool() as pool:
-        wordlists_sorted = sorted(
-            [wordlist for wordlist in os.listdir() if wordlist.endswith('.txt')],
-            key=os.path.getsize,
-        )
-        wordlists_pairs = []
-        for wordlist_small_index, wordlist_small in enumerate(wordlists_sorted):
-            for wordlist_big in wordlists_sorted[wordlist_small_index + 1:]:
-                wordlists_pairs.append((wordlist_small, wordlist_big))
-        pool.starmap(is_redundant, wordlists_pairs)
+    wordlists_sorted = sorted(
+        [wordlist for wordlist in os.listdir() if wordlist.endswith('.txt')],
+        key=os.path.getsize,
+    )
+    wordlists_pairs = []
+    for wordlist_small_index, wordlist_small in enumerate(wordlists_sorted):
+        for wordlist_big in wordlists_sorted[wordlist_small_index + 1:]:
+            wordlists_pairs.append((wordlist_small, wordlist_big))
+    with multiprocessing.Pool() as is_redundant_pool:
+        is_redundant_pool.starmap(is_redundant, wordlists_pairs)
 
 
 if __name__ == '__main__':
