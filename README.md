@@ -47,19 +47,22 @@ LC_ALL='C' grep --text --extended-regexp '.{8}' 'OneWordlistToListThemAll.txt' >
 
 name | size (post filtering) | source
 -- | -- | --
-Adeptus Mechanicus | 1.6 GB | `.dic.7z` files from [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
-Anti Public | 9.3 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1945)
-Breach Compilation | 3.8 GB | magnet link from [GitHub Gist](https://gist.github.com/scottlinux/9a3b11257ac575e4f71de811322ce6b3)
-CrackStation | 12.1 GB | [CrackStation's wordlist](https://crackstation.net/files/crackstation.txt.gz)
-Cyclone | 6.2 GB | MediaFire link from [cyclone's repo](https://github.com/cyclone-github/wordlist/tree/master/cyclone_hk_v2)
-Have I Been Pwned | 6.1 GB | leaks from [hashes.org](https://temp.hashes.org/leaks.php) (HIBP V1 - V6)
-Password DNA | 80.5 KB | `.dict` file from [unix-ninja's post](https://www.unix-ninja.com/p/Password_DNA)
-Probable Wordlists | 21 GB | `.torrent` file from [Probable-Wordlists' repo](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
-RockYou 2024 | 94.9 GB | `.zip` file from [DragonJAR](https://djar.co/rockyou2024zip)
-Weakpass | 99.9 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlist/1948)
+adeptus mechanicus | 1.6 GB | `.dic.7z` files from [adeptus-mechanicus.com](https://www.adeptus-mechanicus.com/codex/hashpass/)
+anti public | 9.3 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlists/antipublic_breach)
+breach compilation | 3.8 GB | `.gz` file from [weakpass.com](https://weakpass.com/wordlists/breachcompilation.txt)
+crackstation | 12.1 GB | `.gz` file from [crackstation.net](https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm)
+cyclone | 6.2 GB | MediaFire link from [cyclone's repo](https://github.com/cyclone-github/wordlist/tree/master/cyclone_hk_v2)
+hashes.org | 14.2 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlists/hashes.org)
+hashkiller | 2.8 GB | `.7z` file from [hashkiller.io](https://hashkiller.io/download)
+have i been pwned | 6.1 GB | leaks from [hashes.org](https://temp.hashes.org/leaks.php) (HIBP V1 - V6)
+kaonashi | 9.4 GB | MEGA link from [Kaonashi's repo](https://github.com/kaonashi-passwords/Kaonashi/tree/master/wordlists)
+password dna | 80.5 KB | `.dict` file from [unix-ninja.com](https://www.unix-ninja.com/p/Password_DNA)
+probable-wordlists | 21 GB | `.torrent` file from [Probable-Wordlists' repo](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
+rockyou 2024 | 94.9 GB | `.zip` file from [DragonJAR](https://djar.co/rockyou2024zip)
+weakpass | 83.3 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlists/weakpass_4a.txt)
  | | 
-[OneWordlistToListThemAll](https://drive.google.com/file/d/1-9Ult5pVzYGaqOLF_4c3pLpgtpvo1kBS) | 105.9 GB | N/A
-[OneWordlistToListThemAll WPA-PSK](https://drive.google.com/file/d/1Lvk0CXEnpA0lcOpNKzHjHTERlL1soNYs) | 97.4 GB | N/A
+[OneWordlistToListThemAll](https://drive.google.com/file/d/1OPg43GD31GeWV3YefuaxcMIo26teRdnY) | 117 GB | N/A
+[OneWordlistToListThemAll WPA-PSK](https://drive.google.com/file/d/1gsrYZgjMtEFwmya_7Y2Ou1hdutX2z-YR) | 99.8 GB | N/A
 
 ## Acknowledgements <a name="acknowledgements" />
 
