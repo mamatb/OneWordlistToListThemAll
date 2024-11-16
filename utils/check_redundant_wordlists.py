@@ -18,31 +18,31 @@ import multiprocessing
 import os
 
 
-def is_redundant(wordlist_small: str, wordlist_big: str) -> None:
-    """Checks if all lines in wordlist_small are included in wordlist_big.
+def is_redundant(wl_small_path: str, wl_big_path: str) -> None:
+    """Checks if all lines in the small wordlist are included in the big wordlist.
 
     Args:
-        wordlist_small: sorted wordlist, smaller than wordlist_big.
-        wordlist_big: sorted wordlist, bigger than wordlist_small.
+        wl_small_path: path of the small sorted wordlist.
+        wl_big_path: path of the big sorted wordlist.
 
     Returns:
         None.
     """
-    with open(wordlist_small) as wl_small, open(wordlist_big) as wl_big:
-        line_wl_small = wl_small.readline()
-        line_wl_big = wl_big.readline()
-        while len(line_wl_small) > 0 and len(line_wl_big) > 0:
-            sline_wl_small = line_wl_small.strip('\n')
-            sline_wl_big = line_wl_big.strip('\n')
-            if sline_wl_small > sline_wl_big:
-                line_wl_big = wl_big.readline()
-            elif sline_wl_small == sline_wl_big:
-                line_wl_small = wl_small.readline()
-                line_wl_big = wl_big.readline()
+    with open(wl_small_path) as wl_small, open(wl_big_path) as wl_big:
+        wl_small_line = wl_small.readline()
+        wl_big_line = wl_big.readline()
+        while len(wl_small_line) > 0 and len(wl_big_line) > 0:
+            wl_small_sline = wl_small_line.strip('\n')
+            wl_big_sline = wl_big_line.strip('\n')
+            if wl_small_sline > wl_big_sline:
+                wl_big_line = wl_big.readline()
+            elif wl_small_sline == wl_big_sline:
+                wl_small_line = wl_small.readline()
+                wl_big_line = wl_big.readline()
             else:
                 break
-        if len(line_wl_small) == 0:
-            print(f'all lines in {wordlist_small} are included in {wordlist_big}')
+        if len(wl_small_line) == 0:
+            print(f'all lines in {wl_small_path} are included in {wl_big_path}')
 
 
 def main() -> None:  # pylint: disable=C0116
