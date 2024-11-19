@@ -18,15 +18,15 @@ import multiprocessing
 import os
 
 
-def is_redundant(wl_small_path: str, wl_big_path: str) -> None:
-    """Checks if all lines in the small wordlist are included in the big wordlist.
+def is_redundant(wl_small_path: str, wl_big_path: str) -> tuple[str, str, bool]:
+    """Checks if a small sorted wordlist is redundant with a big sorted wordlist.
 
     Args:
         wl_small_path: path of the small sorted wordlist.
         wl_big_path: path of the big sorted wordlist.
 
     Returns:
-        None.
+        whether the small sorted wordlist is redundant with the big sorted wordlist.
     """
     with open(wl_small_path) as wl_small, open(wl_big_path) as wl_big:
         wl_small_line = wl_small.readline()
@@ -41,8 +41,7 @@ def is_redundant(wl_small_path: str, wl_big_path: str) -> None:
                 wl_big_line = wl_big.readline()
             else:
                 break
-        if len(wl_small_line) == 0:
-            print(f'all lines in {wl_small_path} are included in {wl_big_path}')
+        return (wl_small_path, wl_big_path, len(wl_small_line) == 0)
 
 
 def main() -> None:  # pylint: disable=C0116
@@ -50,12 +49,20 @@ def main() -> None:  # pylint: disable=C0116
         [wordlist for wordlist in os.listdir() if wordlist.endswith('.txt')],
         key=os.path.getsize,
     )
-    wordlists_pairs = []
-    for wordlist_small_index, wordlist_small in enumerate(wordlists_sorted):
-        for wordlist_big in wordlists_sorted[wordlist_small_index + 1:]:
-            wordlists_pairs.append((wordlist_small, wordlist_big))
-    with multiprocessing.Pool() as is_redundant_pool:
-        is_redundant_pool.starmap(is_redundant, wordlists_pairs)
+    with multiprocessing.Pool() as workers, multiprocessing.Manager() as shared:
+        jobs_n, results = 0, shared.Queue()
+        for wordlist_small_index, wordlist_small in enumerate(wordlists_sorted):
+            for wordlist_big in wordlists_sorted[wordlist_small_index + 1:]:
+                workers.apply_async(
+                    is_redundant,
+                    (wordlist_small, wordlist_big),
+                    callback=results.put,
+                )
+                jobs_n += 1
+        for _ in range(jobs_n):
+            result = results.get()
+            if result[-1]:
+                print(f'{result[0]} is redundant with {result[1]}')
 
 
 if __name__ == '__main__':
