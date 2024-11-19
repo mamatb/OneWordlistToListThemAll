@@ -9,8 +9,18 @@ import (
 	"path/filepath"
 	"runtime"
 	"slices"
-	"strings"
 )
+
+type isRedundantJob struct {
+	wlSmallName string
+	wlBigName   string
+}
+
+type isRedundantResult struct {
+	wlSmallName string
+	wlBigName   string
+	isRedundant bool
+}
 
 func errCheck(err error) {
 	if err != nil {
@@ -29,7 +39,7 @@ func readDirExt(name string, ext string) ([]fs.DirEntry, error) {
 	return entriesExt, err
 }
 
-func isRedundant(wlSmallName string, wlBigName string) string {
+func isRedundant(wlSmallName string, wlBigName string) bool {
 	wlSmall, err := os.Open(wlSmallName)
 	errCheck(err)
 	defer wlSmall.Close()
@@ -51,16 +61,16 @@ func isRedundant(wlSmallName string, wlBigName string) string {
 			wlBigScan = false
 		}
 	}
-	if wlSmallScan {
-		return wlSmallName + " is not redundant with " + wlBigName
-	} else {
-		return wlSmallName + " is redundant with " + wlBigName
-	}
+	return !wlSmallScan
 }
 
-func isRedundantWorker(jobs chan []string, results chan string) {
-	for wlNames := range jobs {
-		results <- isRedundant(wlNames[0], wlNames[1])
+func isRedundantWorker(jobs chan isRedundantJob, results chan isRedundantResult) {
+	for job := range jobs {
+		results <- isRedundantResult{
+			wlSmallName: job.wlSmallName,
+			wlBigName:   job.wlBigName,
+			isRedundant: isRedundant(job.wlSmallName, job.wlBigName),
+		}
 	}
 }
 
@@ -75,20 +85,23 @@ func main() {
 		return int(aInfo.Size() - bInfo.Size())
 	})
 	jobsN, workersN := len(wordlists)*(len(wordlists)-1)/2, runtime.NumCPU()
-	jobs, results := make(chan []string, jobsN), make(chan string, jobsN)
+	jobs, results := make(chan isRedundantJob, jobsN), make(chan isRedundantResult, jobsN)
 	for i := 0; i < workersN; i++ {
 		go isRedundantWorker(jobs, results)
 	}
 	for wlSmallIndex, wlSmall := range wordlists {
 		for _, wlBig := range wordlists[wlSmallIndex+1:] {
-			jobs <- []string{wlSmall.Name(), wlBig.Name()}
+			jobs <- isRedundantJob{
+				wlSmallName: wlSmall.Name(),
+				wlBigName:   wlBig.Name(),
+			}
 		}
 	}
 	close(jobs)
 	for i := 0; i < jobsN; i++ {
 		result := <-results
-		if strings.Contains(result, "is redundant") {
-			fmt.Println(result)
+		if result.isRedundant {
+			fmt.Println(result.wlSmallName + " is redundant with " + result.wlBigName)
 		}
 	}
 	close(results)
