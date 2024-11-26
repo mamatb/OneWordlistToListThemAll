@@ -32,8 +32,8 @@ def is_redundant(wl_small_path: str, wl_big_path: str) -> tuple[str, str, bool]:
         wl_small_line = wl_small.readline()
         wl_big_line = wl_big.readline()
         while len(wl_small_line) > 0 and len(wl_big_line) > 0:
-            wl_small_sline = wl_small_line.strip('\n')
-            wl_big_sline = wl_big_line.strip('\n')
+            wl_small_sline = wl_small_line.removesuffix('\n')
+            wl_big_sline = wl_big_line.removesuffix('\n')
             if wl_small_sline > wl_big_sline:
                 wl_big_line = wl_big.readline()
             elif wl_small_sline == wl_big_sline:
