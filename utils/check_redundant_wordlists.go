@@ -48,15 +48,12 @@ func isRedundant(wlSmallName string, wlBigName string) bool {
 	defer wlBig.Close()
 	wlSmallScanner, wlBigScanner := bufio.NewScanner(wlSmall), bufio.NewScanner(wlBig)
 	wlSmallScan, wlBigScan := wlSmallScanner.Scan(), wlBigScanner.Scan()
-	wlSmallLine, wlBigLine := wlSmallScanner.Bytes(), wlBigScanner.Bytes()
 	for wlSmallScan && wlBigScan {
-		switch bytes.Compare(wlSmallLine, wlBigLine) {
+		switch bytes.Compare(wlSmallScanner.Bytes(), wlBigScanner.Bytes()) {
 		case 1:
 			wlBigScan = wlBigScanner.Scan()
-			wlBigLine = wlBigScanner.Bytes()
 		case 0:
 			wlSmallScan, wlBigScan = wlSmallScanner.Scan(), wlBigScanner.Scan()
-			wlSmallLine, wlBigLine = wlSmallScanner.Bytes(), wlBigScanner.Bytes()
 		case -1:
 			wlBigScan = false
 		}
