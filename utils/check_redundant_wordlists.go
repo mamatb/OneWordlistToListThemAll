@@ -22,15 +22,9 @@ type isRedundantResult struct {
 	isRedundant bool
 }
 
-func errCheck(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
 func readDirExt(name string, ext string) ([]fs.DirEntry, error) {
-	entries, err := os.ReadDir(name)
 	var entriesExt []fs.DirEntry
+	entries, err := os.ReadDir(name)
 	for _, entry := range entries {
 		if !entry.IsDir() && filepath.Ext(entry.Name()) == ext {
 			entriesExt = append(entriesExt, entry)
@@ -40,13 +34,19 @@ func readDirExt(name string, ext string) ([]fs.DirEntry, error) {
 }
 
 func isRedundant(wlSmallName string, wlBigName string) bool {
-	wlSmall, err := os.Open(wlSmallName)
-	errCheck(err)
-	defer wlSmall.Close()
-	wlBig, err := os.Open(wlBigName)
-	errCheck(err)
-	defer wlBig.Close()
-	wlSmallScanner, wlBigScanner := bufio.NewScanner(wlSmall), bufio.NewScanner(wlBig)
+	var wlSmallScanner, wlBigScanner *bufio.Scanner
+	if wlSmall, err := os.Open(wlSmallName); err == nil {
+		defer wlSmall.Close()
+		wlSmallScanner = bufio.NewScanner(wlSmall)
+	} else {
+		panic(err)
+	}
+	if wlBig, err := os.Open(wlBigName); err == nil {
+		defer wlBig.Close()
+		wlBigScanner = bufio.NewScanner(wlBig)
+	} else {
+		panic(err)
+	}
 	wlSmallScan, wlBigScan := wlSmallScanner.Scan(), wlBigScanner.Scan()
 	for wlSmallScan && wlBigScan {
 		switch bytes.Compare(wlSmallScanner.Bytes(), wlBigScanner.Bytes()) {
@@ -72,14 +72,22 @@ func isRedundantWorker(jobs chan isRedundantJob, results chan isRedundantResult)
 }
 
 func main() {
-	wordlists, err := readDirExt(".", ".txt")
-	errCheck(err)
+	var wordlists []fs.DirEntry
+	if entries, err := readDirExt(".", ".txt"); err == nil {
+		wordlists = entries
+	} else {
+		panic(err)
+	}
 	slices.SortFunc(wordlists, func(a fs.DirEntry, b fs.DirEntry) int {
-		aInfo, err := a.Info()
-		errCheck(err)
-		bInfo, err := b.Info()
-		errCheck(err)
-		return int(aInfo.Size() - bInfo.Size())
+		if aInfo, aErr := a.Info(); aErr == nil {
+			if bInfo, bErr := b.Info(); bErr == nil {
+				return int(aInfo.Size() - bInfo.Size())
+			} else {
+				panic(bErr)
+			}
+		} else {
+			panic(aErr)
+		}
 	})
 	jobsN, workersN := len(wordlists)*(len(wordlists)-1)/2, runtime.NumCPU()
 	jobs, results := make(chan isRedundantJob, jobsN), make(chan isRedundantResult, jobsN)
