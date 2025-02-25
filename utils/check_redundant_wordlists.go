@@ -91,7 +91,7 @@ func main() {
 	})
 	jobsN, workersN := len(wordlists)*(len(wordlists)-1)/2, runtime.NumCPU()
 	jobs, results := make(chan isRedundantJob, jobsN), make(chan isRedundantResult, jobsN)
-	for i := 0; i < workersN; i++ {
+	for range workersN {
 		go isRedundantWorker(jobs, results)
 	}
 	for wlSmallIndex, wlSmall := range wordlists {
@@ -103,7 +103,7 @@ func main() {
 		}
 	}
 	close(jobs)
-	for i := 0; i < jobsN; i++ {
+	for range jobsN {
 		result := <-results
 		if result.isRedundant {
 			fmt.Println(result.wlSmallName + " is redundant with " + result.wlBigName)
