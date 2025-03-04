@@ -61,8 +61,8 @@ probable-wordlists | 21 GB | `.torrent` file from [Probable-Wordlists' repo](htt
 rockyou 2024 | 94.9 GB | `.zip` file from [DragonJAR](https://djar.co/rockyou2024zip)
 weakpass | 83.3 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlists/weakpass_4a.txt)
  | | 
-[OneWordlistToListThemAll](https://drive.google.com/file/d/1cNm5bqDLvK_STuuBaa1bD2eHlUs7FFJB) | 117 GB | N/A
-[OneWordlistToListThemAll WPA-PSK](https://drive.google.com/file/d/1FU0kAVo5j3SXX_f9h8RdAeFjhm78xcjw) | 99.8 GB | N/A
+[OneWordlistToListThemAll](https://drive.google.com/file/d/1H6tpqkZDLXWVPdhxFXxSczFbgdbjvS5B) | 117 GB | N/A
+[OneWordlistToListThemAll WPA-PSK](https://drive.google.com/file/d/1culVju2aUQYtFp0CxWCguzGVDswzlMrv) | 99.8 GB | N/A
 
 ## Acknowledgements <a name="acknowledgements" />
 
