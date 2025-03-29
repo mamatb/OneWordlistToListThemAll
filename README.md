@@ -57,8 +57,9 @@ hashkiller | 2.8 GB | `.7z` file from [hashkiller.io](https://hashkiller.io/down
 have i been pwned | 6.1 GB | leaks from [hashes.org](https://temp.hashes.org/leaks.php) (HIBP V1 - V6)
 kaonashi | 9.4 GB | MEGA link from [Kaonashi's repo](https://github.com/kaonashi-passwords/Kaonashi/tree/master/wordlists)
 password dna | 80.5 KB | `.dict` file from [unix-ninja.com](https://www.unix-ninja.com/p/Password_DNA)
-probable-wordlists | 21 GB | `.torrent` file from [Probable-Wordlists' repo](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
+probable wordlists | 21 GB | `.torrent` file from [Probable Wordlists' repo](https://github.com/berzerk0/Probable-Wordlists/tree/master/Real-Passwords/Real-Password-Rev-2-Torrents)
 rockyou 2024 | 94.9 GB | `.zip` file from [DragonJAR](https://djar.co/rockyou2024zip)
+triple h | 17.9 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlists/triple_h.txt)
 weakpass | 83.3 GB | `.7z` file from [weakpass.com](https://weakpass.com/wordlists/weakpass_4a.txt)
  | | 
 [OneWordlistToListThemAll](https://drive.proton.me/urls/QZJTS5GST0#SEOcN29GRopg) | 117 GB | N/A
