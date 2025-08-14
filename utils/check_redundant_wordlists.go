@@ -55,7 +55,7 @@ func isRedundant(wlSmallName string, wlBigName string) bool {
 		case 0:
 			wlSmallScan, wlBigScan = wlSmallScanner.Scan(), wlBigScanner.Scan()
 		case -1:
-			wlBigScan = false
+			return false
 		}
 	}
 	return !wlSmallScan

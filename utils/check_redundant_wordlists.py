@@ -40,8 +40,8 @@ def is_redundant(wl_small_path: str, wl_big_path: str) -> tuple[str, str, bool]:
                 wl_small_line = wl_small.readline()
                 wl_big_line = wl_big.readline()
             else:
-                break
-        return (wl_small_path, wl_big_path, len(wl_small_line) == 0)
+                return wl_small_path, wl_big_path, False
+        return wl_small_path, wl_big_path, len(wl_small_line) == 0
 
 
 def main() -> None:  # pylint: disable=C0116
