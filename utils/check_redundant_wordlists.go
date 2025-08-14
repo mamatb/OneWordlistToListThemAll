@@ -79,15 +79,18 @@ func main() {
 		panic(err)
 	}
 	slices.SortFunc(wordlists, func(a fs.DirEntry, b fs.DirEntry) int {
-		if aInfo, aErr := a.Info(); aErr == nil {
-			if bInfo, bErr := b.Info(); bErr == nil {
-				return int(aInfo.Size() - bInfo.Size())
-			} else {
-				panic(bErr)
-			}
+		var aSize, bSize int64
+		if aInfo, err := a.Info(); err == nil {
+			aSize = aInfo.Size()
 		} else {
-			panic(aErr)
+			panic(err)
 		}
+		if bInfo, err := b.Info(); err == nil {
+			bSize = bInfo.Size()
+		} else {
+			panic(err)
+		}
+		return int(aSize - bSize)
 	})
 	jobsN, workersN := len(wordlists)*(len(wordlists)-1)/2, runtime.NumCPU()
 	jobs, results := make(chan isRedundantJob, jobsN), make(chan isRedundantResult, jobsN)
