@@ -124,7 +124,7 @@ func main() {
 				"wlBigName", result.wlBigName,
 			)
 		} else if result.isRedundantBool {
-			slog.Info("isRedundant(wlSmallName, wlBigName) returned true",
+			slog.Info("isRedundant(wlSmallName, wlBigName)=true",
 				"wlSmallName", result.wlSmallName,
 				"wlBigName", result.wlBigName,
 			)
