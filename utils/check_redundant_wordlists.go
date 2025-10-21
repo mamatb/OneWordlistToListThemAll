@@ -76,15 +76,15 @@ func isRedundantWorker(jobs chan isRedundantJob, results chan isRedundantResult)
 }
 
 func main() {
-	const CWD, EXT string = ".", ".txt"
+	const cwd, ext string = ".", ".txt"
 	log.SetFlags(0)
 	log.SetOutput(os.Stderr)
-	wordlists, err := readDirExt(CWD, EXT)
+	wordlists, err := readDirExt(cwd, ext)
 	if err != nil {
 		slog.Error("readDirExt(name, ext)",
 			"error", err,
-			"name", CWD,
-			"ext", EXT,
+			"name", cwd,
+			"ext", ext,
 		)
 	}
 	slices.SortFunc(wordlists, func(a fs.DirEntry, b fs.DirEntry) int {
