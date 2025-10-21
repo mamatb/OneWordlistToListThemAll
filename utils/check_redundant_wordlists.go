@@ -12,6 +12,11 @@ import (
 	"slices"
 )
 
+const (
+	cwd = "."
+	extTxt = ".txt"
+)
+
 type isRedundantJob struct {
 	wlSmallName string
 	wlBigName   string
@@ -76,15 +81,14 @@ func isRedundantWorker(jobs chan isRedundantJob, results chan isRedundantResult)
 }
 
 func main() {
-	const cwd, ext string = ".", ".txt"
 	log.SetFlags(0)
 	log.SetOutput(os.Stderr)
-	wordlists, err := readDirExt(cwd, ext)
+	wordlists, err := readDirExt(cwd, extTxt)
 	if err != nil {
 		slog.Error("readDirExt(name, ext)",
 			"error", err,
 			"name", cwd,
-			"ext", ext,
+			"ext", extTxt,
 		)
 	}
 	slices.SortFunc(wordlists, func(a fs.DirEntry, b fs.DirEntry) int {
