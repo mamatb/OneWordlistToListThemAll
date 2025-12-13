@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"log"
 	"log/slog"
 	"os"
 	"path/filepath"
@@ -69,6 +70,8 @@ func filterWordlistWorker(jobs chan string, results chan filterWordlistResult) {
 }
 
 func main() {
+	log.SetFlags(0)
+	log.SetOutput(os.Stderr)
 	jobsN, workersN := len(os.Args)-1, runtime.NumCPU()
 	jobs, results := make(chan string, jobsN), make(chan filterWordlistResult, jobsN)
 	for range workersN {
