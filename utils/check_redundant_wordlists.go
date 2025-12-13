@@ -3,18 +3,11 @@ package main
 import (
 	"bufio"
 	"bytes"
-	"io/fs"
 	"log"
 	"log/slog"
 	"os"
-	"path/filepath"
 	"runtime"
 	"slices"
-)
-
-const (
-	cwd = "."
-	extTxt = ".txt"
 )
 
 type isRedundantJob struct {
@@ -27,17 +20,6 @@ type isRedundantResult struct {
 	wlBigName        string
 	isRedundantBool  bool
 	isRedundantError error
-}
-
-func readDirExt(name string, ext string) ([]fs.DirEntry, error) {
-	var entriesExt []fs.DirEntry
-	entries, err := os.ReadDir(name)
-	for _, entry := range entries {
-		if !entry.IsDir() && filepath.Ext(entry.Name()) == ext {
-			entriesExt = append(entriesExt, entry)
-		}
-	}
-	return entriesExt, err
 }
 
 func isRedundant(wlSmallName string, wlBigName string) (bool, error) {
@@ -83,22 +65,15 @@ func isRedundantWorker(jobs chan isRedundantJob, results chan isRedundantResult)
 func main() {
 	log.SetFlags(0)
 	log.SetOutput(os.Stderr)
-	wordlists, err := readDirExt(cwd, extTxt)
-	if err != nil {
-		slog.Error("readDirExt(name, ext)",
-			"error", err,
-			"name", cwd,
-			"ext", extTxt,
-		)
-	}
-	slices.SortFunc(wordlists, func(a fs.DirEntry, b fs.DirEntry) int {
+	wordlists := os.Args[1:]
+	slices.SortFunc(wordlists, func(a string, b string) int {
 		var aSize, bSize int64
-		if aInfo, err := a.Info(); err == nil {
+		if aInfo, err := os.Stat(a); err == nil {
 			aSize = aInfo.Size()
 		} else {
 			return 0
 		}
-		if bInfo, err := b.Info(); err == nil {
+		if bInfo, err := os.Stat(b); err == nil {
 			bSize = bInfo.Size()
 		} else {
 			return 0
@@ -113,8 +88,8 @@ func main() {
 	for wlSmallIndex, wlSmall := range wordlists {
 		for _, wlBig := range wordlists[wlSmallIndex+1:] {
 			jobs <- isRedundantJob{
-				wlSmallName: wlSmall.Name(),
-				wlBigName:   wlBig.Name(),
+				wlSmallName: wlSmall,
+				wlBigName:   wlBig,
 			}
 		}
 	}
