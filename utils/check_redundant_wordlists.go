@@ -26,7 +26,7 @@ func isRedundant(wlSmallName string, wlBigName string) (bool, error) {
 	var wlSmallScanner, wlBigScanner *bufio.Scanner
 	if wlSmall, err := os.Open(wlSmallName); err != nil {
 		return false, err
-	else {
+	} else {
 		defer wlSmall.Close()
 		wlSmallScanner = bufio.NewScanner(wlSmall)
 	}
