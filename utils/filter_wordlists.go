@@ -11,7 +11,10 @@ import (
 	"strings"
 )
 
-const scanTokenSize = 1024 * bufio.MaxScanTokenSize
+const (
+	scanTokenSize = 1024 * bufio.MaxScanTokenSize
+	wlSuffix = "-unix_print_32max_nohash"
+)
 
 type filterWordlistResult struct {
 	wordlist            string
@@ -30,7 +33,7 @@ func filterWordlist(wordlist string) error {
 		wlScanner.Buffer(make([]byte, scanTokenSize), scanTokenSize)
 	}
 	var wlWriter *bufio.Writer
-	if wlFile, err := os.Create(wlName + "_filtered" + wlExt); err != nil {
+	if wlFile, err := os.Create(wlName + wlSuffix + wlExt); err != nil {
 		return err
 	} else {
 		defer wlFile.Close()
