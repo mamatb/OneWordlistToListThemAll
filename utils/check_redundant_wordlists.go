@@ -24,17 +24,17 @@ type isRedundantResult struct {
 
 func isRedundant(wlSmallName string, wlBigName string) (bool, error) {
 	var wlSmallScanner, wlBigScanner *bufio.Scanner
-	if wlSmall, err := os.Open(wlSmallName); err == nil {
+	if wlSmall, err := os.Open(wlSmallName); err != nil {
+		return false, err
+	else {
 		defer wlSmall.Close()
 		wlSmallScanner = bufio.NewScanner(wlSmall)
-	} else {
-		return false, err
 	}
-	if wlBig, err := os.Open(wlBigName); err == nil {
+	if wlBig, err := os.Open(wlBigName); err != nil {
+		return false, err
+	} else {
 		defer wlBig.Close()
 		wlBigScanner = bufio.NewScanner(wlBig)
-	} else {
-		return false, err
 	}
 	wlSmallScan, wlBigScan := wlSmallScanner.Scan(), wlBigScanner.Scan()
 	for wlSmallScan && wlBigScan {
@@ -68,15 +68,15 @@ func main() {
 	wordlists := os.Args[1:]
 	slices.SortFunc(wordlists, func(a string, b string) int {
 		var aSize, bSize int64
-		if aInfo, err := os.Stat(a); err == nil {
+		if aInfo, err := os.Stat(a); err != nil {
+			return 0
+		} else {
 			aSize = aInfo.Size()
-		} else {
-			return 0
 		}
-		if bInfo, err := os.Stat(b); err == nil {
-			bSize = bInfo.Size()
-		} else {
+		if bInfo, err := os.Stat(b); err != nil {
 			return 0
+		} else {
+			bSize = bInfo.Size()
 		}
 		return int(aSize - bSize)
 	})
