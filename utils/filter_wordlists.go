@@ -13,31 +13,35 @@ import (
 
 const (
 	scanTokenSize = 1024 * bufio.MaxScanTokenSize
-	wlSuffix = "-unix_print_32max_nohash"
+	wlSuffix      = "-unix_print_32max_nohash"
 )
 
-type filterWordlistResult struct {
-	wordlist            string
-	filterWordlistError error
+type filterWlJob struct {
+	wlNameIn  string
+	wlNameOut string
 }
 
-func filterWordlist(wordlist string) error {
-	wlExt := filepath.Ext(wordlist)
-	wlName := strings.TrimSuffix(wordlist, wlExt)
+type filterWlRes struct {
+	wlNameIn    string
+	wlNameOut   string
+	filterWlErr error
+}
+
+func filterWordlist(wlNameIn string, wlNameOut string) error {
 	var wlScanner *bufio.Scanner
-	if wlFile, err := os.Open(wlName + wlExt); err != nil {
+	if wlFileIn, err := os.Open(wlNameIn); err != nil {
 		return err
 	} else {
-		defer wlFile.Close()
-		wlScanner = bufio.NewScanner(wlFile)
+		defer wlFileIn.Close()
+		wlScanner = bufio.NewScanner(wlFileIn)
 		wlScanner.Buffer(make([]byte, scanTokenSize), scanTokenSize)
 	}
 	var wlWriter *bufio.Writer
-	if wlFile, err := os.Create(wlName + wlSuffix + wlExt); err != nil {
+	if wlFileOut, err := os.Create(wlNameOut); err != nil {
 		return err
 	} else {
-		defer wlFile.Close()
-		wlWriter = bufio.NewWriter(wlFile)
+		defer wlFileOut.Close()
+		wlWriter = bufio.NewWriter(wlFileOut)
 		defer wlWriter.Flush()
 	}
 	rePrint, err := regexp.Compile(`^[[:print:]]*$`)
@@ -49,10 +53,9 @@ func filterWordlist(wordlist string) error {
 		return err
 	}
 	for wlScanner.Scan() {
-		password := wlScanner.Text()
-		if rePrint.MatchString(password) && !reHash.MatchString(password) &&
-			len(password) <= 32 {
-			if _, err := wlWriter.WriteString(password); err != nil {
+		word := wlScanner.Text()
+		if rePrint.MatchString(word) && len(word) <= 32 && !reHash.MatchString(word) {
+			if _, err := wlWriter.WriteString(word); err != nil {
 				return err
 			}
 			if _, err := wlWriter.WriteRune('\n'); err != nil {
@@ -63,11 +66,12 @@ func filterWordlist(wordlist string) error {
 	return wlScanner.Err()
 }
 
-func filterWordlistWorker(jobs chan string, results chan filterWordlistResult) {
+func filterWlWorker(jobs chan filterWlJob, results chan filterWlRes) {
 	for job := range jobs {
-		results <- filterWordlistResult{
-			wordlist:            job,
-			filterWordlistError: filterWordlist(job),
+		results <- filterWlRes{
+			wlNameIn:    job.wlNameIn,
+			wlNameOut:   job.wlNameOut,
+			filterWlErr: filterWordlist(job.wlNameIn, job.wlNameOut),
 		}
 	}
 }
@@ -76,20 +80,26 @@ func main() {
 	log.SetFlags(0)
 	log.SetOutput(os.Stderr)
 	jobsN, workersN := len(os.Args)-1, runtime.NumCPU()
-	jobs, results := make(chan string, jobsN), make(chan filterWordlistResult, jobsN)
+	jobs, results := make(chan filterWlJob, jobsN), make(chan filterWlRes, jobsN)
 	for range workersN {
-		go filterWordlistWorker(jobs, results)
+		go filterWlWorker(jobs, results)
 	}
-	for _, wordlist := range os.Args[1:] {
-		jobs <- wordlist
+	for _, wlName := range os.Args[1:] {
+		wlExt := filepath.Ext(wlName)
+		wlStem := strings.TrimSuffix(wlName, wlExt)
+		jobs <- filterWlJob{
+			wlNameIn:  wlName,
+			wlNameOut: wlStem + wlSuffix + wlExt,
+		}
 	}
 	close(jobs)
 	for range jobsN {
 		result := <-results
-		if result.filterWordlistError != nil {
-			slog.Error("filterWordlist(wordlist)",
-				"error", result.filterWordlistError,
-				"wordlist", result.wordlist,
+		if result.filterWlErr != nil {
+			slog.Error("filterWordlist(wlNameIn, wlNameOut)",
+				"error", result.filterWlErr,
+				"wlNameInt", result.wlNameIn,
+				"wlNameOut", result.wlNameOut,
 			)
 		}
 	}

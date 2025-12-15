@@ -15,11 +15,11 @@ type isRedundantJob struct {
 	wlBigName   string
 }
 
-type isRedundantResult struct {
-	wlSmallName      string
-	wlBigName        string
-	isRedundantBool  bool
-	isRedundantError error
+type isRedundantRes struct {
+	wlSmallName    string
+	wlBigName      string
+	isRedundantRet bool
+	isRedundantErr error
 }
 
 func isRedundant(wlSmallName string, wlBigName string) (bool, error) {
@@ -50,14 +50,14 @@ func isRedundant(wlSmallName string, wlBigName string) (bool, error) {
 	return !wlSmallScan, nil
 }
 
-func isRedundantWorker(jobs chan isRedundantJob, results chan isRedundantResult) {
+func isRedundantWorker(jobs chan isRedundantJob, results chan isRedundantRes) {
 	for job := range jobs {
-		isRedundantBool, isRedundantError := isRedundant(job.wlSmallName, job.wlBigName)
-		results <- isRedundantResult{
-			wlSmallName:      job.wlSmallName,
-			wlBigName:        job.wlBigName,
-			isRedundantBool:  isRedundantBool,
-			isRedundantError: isRedundantError,
+		isRedundantRet, isRedundantErr := isRedundant(job.wlSmallName, job.wlBigName)
+		results <- isRedundantRes{
+			wlSmallName:    job.wlSmallName,
+			wlBigName:      job.wlBigName,
+			isRedundantRet: isRedundantRet,
+			isRedundantErr: isRedundantErr,
 		}
 	}
 }
@@ -65,8 +65,8 @@ func isRedundantWorker(jobs chan isRedundantJob, results chan isRedundantResult)
 func main() {
 	log.SetFlags(0)
 	log.SetOutput(os.Stderr)
-	wordlists := os.Args[1:]
-	slices.SortFunc(wordlists, func(a string, b string) int {
+	wlNames := os.Args[1:]
+	slices.SortFunc(wlNames, func(a string, b string) int {
 		var aSize, bSize int64
 		if aInfo, err := os.Stat(a); err != nil {
 			return 0
@@ -80,29 +80,29 @@ func main() {
 		}
 		return int(aSize - bSize)
 	})
-	jobsN, workersN := len(wordlists)*(len(wordlists)-1)/2, runtime.NumCPU()
-	jobs, results := make(chan isRedundantJob, jobsN), make(chan isRedundantResult, jobsN)
+	jobsN, workersN := len(wlNames)*(len(wlNames)-1)/2, runtime.NumCPU()
+	jobs, results := make(chan isRedundantJob, jobsN), make(chan isRedundantRes, jobsN)
 	for range workersN {
 		go isRedundantWorker(jobs, results)
 	}
-	for wlSmallIndex, wlSmall := range wordlists {
-		for _, wlBig := range wordlists[wlSmallIndex+1:] {
+	for wlSmallIndex, wlSmallName := range wlNames {
+		for _, wlBigName := range wlNames[wlSmallIndex+1:] {
 			jobs <- isRedundantJob{
-				wlSmallName: wlSmall,
-				wlBigName:   wlBig,
+				wlSmallName: wlSmallName,
+				wlBigName:   wlBigName,
 			}
 		}
 	}
 	close(jobs)
 	for range jobsN {
 		result := <-results
-		if result.isRedundantError != nil {
+		if result.isRedundantErr != nil {
 			slog.Error("isRedundant(wlSmallName, wlBigName)",
-				"error", result.isRedundantError,
+				"error", result.isRedundantErr,
 				"wlSmallName", result.wlSmallName,
 				"wlBigName", result.wlBigName,
 			)
-		} else if result.isRedundantBool {
+		} else if result.isRedundantRet {
 			slog.Info("isRedundant(wlSmallName, wlBigName)=true",
 				"wlSmallName", result.wlSmallName,
 				"wlBigName", result.wlBigName,
