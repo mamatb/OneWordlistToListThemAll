@@ -98,7 +98,7 @@ func main() {
 		if result.filterWlErr != nil {
 			slog.Error("filterWordlist(wlNameIn, wlNameOut)",
 				"error", result.filterWlErr,
-				"wlNameInt", result.wlNameIn,
+				"wlNameIn", result.wlNameIn,
 				"wlNameOut", result.wlNameOut,
 			)
 		}
