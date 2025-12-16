@@ -86,10 +86,9 @@ func main() {
 	}
 	for _, wlName := range os.Args[1:] {
 		wlExt := filepath.Ext(wlName)
-		wlStem := strings.TrimSuffix(wlName, wlExt)
 		jobs <- filterWlJob{
 			wlNameIn:  wlName,
-			wlNameOut: wlStem + wlSuffix + wlExt,
+			wlNameOut: strings.TrimSuffix(wlName, wlExt) + wlSuffix + wlExt,
 		}
 	}
 	close(jobs)
