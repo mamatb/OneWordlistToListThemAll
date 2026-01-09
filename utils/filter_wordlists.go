@@ -79,9 +79,9 @@ func filterWlWorker(jobs chan filterWlJob, results chan filterWlRes) {
 func main() {
 	log.SetFlags(0)
 	log.SetOutput(os.Stderr)
-	jobsN, workersN := len(os.Args)-1, runtime.NumCPU()
-	jobs, results := make(chan filterWlJob, jobsN), make(chan filterWlRes, jobsN)
-	for range workersN {
+	jobsN := len(os.Args) - 1
+	jobs, results := make(chan filterWlJob, jobsN), make(chan filterWlRes)
+	for range runtime.NumCPU() {
 		go filterWlWorker(jobs, results)
 	}
 	for _, wlName := range os.Args[1:] {
