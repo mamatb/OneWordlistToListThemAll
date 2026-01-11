@@ -80,7 +80,7 @@ func main() {
 	log.SetFlags(0)
 	log.SetOutput(os.Stderr)
 	jobsN := len(os.Args) - 1
-	jobs, results := make(chan filterWlJob, jobsN), make(chan filterWlRes)
+	jobs, results := make(chan filterWlJob, jobsN), make(chan filterWlRes, jobsN)
 	for range runtime.NumCPU() {
 		go filterWlWorker(jobs, results)
 	}

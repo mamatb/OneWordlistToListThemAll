@@ -81,7 +81,7 @@ func main() {
 		return int(aSize - bSize)
 	})
 	jobsN := len(wlNames) * (len(wlNames) - 1) / 2
-	jobs, results := make(chan isRedundantJob, jobsN), make(chan isRedundantRes)
+	jobs, results := make(chan isRedundantJob, jobsN), make(chan isRedundantRes, jobsN)
 	for range runtime.NumCPU() {
 		go isRedundantWorker(jobs, results)
 	}
